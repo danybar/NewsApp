@@ -42,6 +42,6 @@ class DashboardViewModel : ViewModel() {
 
     interface NewsApiService {
         @GET("everything")
-        suspend fun getEverything(@Query("q") query: String, @Query("apiKey") apiKey: String = "ad47dee143a142caa85d4240597de0aa"): NewsApiResponse
+        suspend fun getEverything(@Query("q") query: String, @Query("pageSize") pageSize: Int = 10, @Query("apiKey") apiKey: String = "ad47dee143a142caa85d4240597de0aa"): NewsApiResponse
     }
 }
