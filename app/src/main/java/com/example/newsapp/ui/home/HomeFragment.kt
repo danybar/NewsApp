@@ -1,6 +1,7 @@
 package com.example.newsapp.ui.home
 
-import ArticlesAdapter
+import com.example.newsapp.ui.dashboard.ArticlesAdapter
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -42,6 +43,7 @@ class HomeFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
         }
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

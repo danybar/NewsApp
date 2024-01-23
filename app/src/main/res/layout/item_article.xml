@@ -33,6 +33,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"/>
 
+        <Button
+            android:id="@+id/saveArticleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Uložit Článek"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
