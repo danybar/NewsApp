@@ -1,6 +1,8 @@
 package com.example.newsapp.ui.notifications
 
+import android.content.Context
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +14,6 @@ import com.example.newsapp.databinding.FragmentNotificationsBinding
 class NotificationsFragment : Fragment() {
 
     private var _binding: FragmentNotificationsBinding? = null
-
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -28,8 +29,21 @@ class NotificationsFragment : Fragment() {
 
         notificationsViewModel.savedArticles.observe(viewLifecycleOwner) { savedArticles ->
             binding.textNotifications.text = savedArticles
+            binding.textNotifications.movementMethod = ScrollingMovementMethod() // Nastavení scrollování
         }
+
+        binding.clearMemoryButton.setOnClickListener {
+            clearSharedPreferences()
+        }
+
         return root
+    }
+
+    private fun clearSharedPreferences() {
+        val sharedPrefs = requireActivity().getSharedPreferences("MyAppSharedPreferences", Context.MODE_PRIVATE)
+        sharedPrefs.edit().clear().apply()
+        // Aktualizace zobrazení nebo zobrazení zprávy uživateli
+        binding.textNotifications.text = ""
     }
 
     override fun onDestroyView() {
